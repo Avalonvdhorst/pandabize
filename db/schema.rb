@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_140729) do
+ActiveRecord::Schema.define(version: 2021_02_11_141206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2021_02_11_140729) do
     t.index ["bicycle_model_id"], name: "index_option_types_on_bicycle_model_id"
   end
 
+  create_table "options", force: :cascade do |t|
+    t.string "content"
+    t.bigint "option_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_type_id"], name: "index_options_on_option_type_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,4 +51,5 @@ ActiveRecord::Schema.define(version: 2021_02_11_140729) do
   end
 
   add_foreign_key "option_types", "bicycle_models"
+  add_foreign_key "options", "option_types"
 end
