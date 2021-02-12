@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="d-flex justify-content-between text-center my-3">
+    <h1>My uploaded bikes</h1>
+    <h1> <%= link_to "Add a bike", new_bicycle_model_path, class: "btn btn-outline-primary" %> </h1>
+  </div>
+  <div class="row">
+    <% @bicycles.each do |bike| %>
+      <div class="col-4 my-3">
+        <div class="card" style="width: 22rem;">
+          <img src="<%= bike.url_photo %>" class="card-img-top" alt="...">
+          <div class="card-body" style="height: 60px;">
+            <div class="d-flex justify-content-between">
+              <p><strong><%= bike.name.upcase %></strong></p>
+                <p><%= link_to "Edit", edit_bicycle_model_path(bike) %>
+                <%= link_to "Delete",
+                    bicycle_model_path(bike),
+                    method: :delete,
+                    data: { confirm: "Are you sure you want to delete this bike?" } %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
