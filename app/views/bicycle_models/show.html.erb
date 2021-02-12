@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="w-100 my-3" style="background-image: url(<%= @bm.url_photo %>); background-size: cover; background-position: center; height: 65vh;">
+      </div>
+      <div class="bg-white w-100 p-3">
+        <h1><%= @bm.name.upcase %></h1>
+        <p><%= @bm.description %></p>
+      </div>
+      <div class="bg-white w-100 p-3 my-3">
+        <div class="row">
+          <% @bm.option_types.each do |ot| %>
+            <div class="col-4">
+              <p><strong><%= ot.name %></strong></p>
+              <% ot.options.each do |option| %>
+                <p> <%= option.content %> </p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card sticky-top mt-3" style="width: 20rem;">
+        <div class="card-header">
+          <strong>Select your custom options:</strong>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
