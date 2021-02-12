@@ -1,0 +1,5 @@
+<%= simple_form_for(@bm) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.button_button t(".submit"), name: "submit", class: "btn btn-primary" %>
+<% end %>

@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @bicycles = BicycleModel.all
+    authorize BicycleModel
   end
 end
