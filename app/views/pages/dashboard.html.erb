@@ -1,9 +1,12 @@
 <div class="container">
-  <h1 class="text-center my-3">My uploaded bikes</h1>
+  <div class="d-flex justify-content-between text-center my-3">
+    <h1>My uploaded bikes</h1>
+    <h1> <%= link_to "Add a bike", new_bicycle_model_path, class: "btn btn-outline-primary" %> </h1>
+  </div>
   <div class="row">
     <% @bicycles.each do |bike| %>
-      <div class="col-4">
-        <div class="card" style="width: 20rem;">
+      <div class="col-4 my-3">
+        <div class="card" style="width: 22rem;">
           <img src="<%= bike.url_photo %>" class="card-img-top" alt="...">
           <div class="card-body" style="height: 60px;">
             <div class="d-flex justify-content-between">

@@ -13,7 +13,7 @@ class BicycleModelPolicy < ApplicationPolicy
     @user.admin?
   end
 
-  def edit?
+  def create?
     @user.admin?
   end
 

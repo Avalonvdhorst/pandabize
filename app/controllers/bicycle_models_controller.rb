@@ -9,6 +9,22 @@ class BicycleModelsController < ApplicationController
     authorize(@bm)
   end
 
+  def new
+    @bm = BicycleModel.new
+    authorize(@bm)
+  end
+
+  def create
+    @bm = BicycleModel.new(set_bm_params)
+    authorize(@bm)
+
+    if @bm.save
+      redirect_to dashboard_path
+    else
+      render 'new'
+    end
+  end
+
   def edit
     @bm = BicycleModel.find(params[:id])
     authorize(@bm)
