@@ -1,13 +1,13 @@
 <div class="container">
   <div class="d-flex justify-content-between text-center my-4">
-    <h3><strong>My uploaded bikes</strong></h3>
+    <h3><strong>Uploaded bikes</strong></h3>
     <h2> <%= link_to "Add a bike", new_bicycle_model_path, class: "btn btn-outline-primary" %> </h2>
   </div>
   <div class="row">
     <% @bicycles.each do |bike| %>
       <div class="col-4 my-3">
         <div class="card box-shadow" style="width: 22rem;">
-          <img src="<%= bike.url_photo %>" class="card-img-top" alt="...">
+          <img src="<%= bike.url_photo %>" class="card-img-top" alt="..." style="height: 220px;">
           <div class="card-body" style="height: 60px;">
             <div class="d-flex justify-content-between">
               <p><strong><%= bike.name.upcase %></strong></p>
