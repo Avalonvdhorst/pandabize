@@ -1,1 +1,20 @@
 // Specific CSS for your home-page
+body {
+  background-color: white;
+  // font-family: 'IBM Plex Serif', serif;
+  font-family: 'Cairo', sans-serif;
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    font-weight: 700;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0px 3px 7px rgba(0,0,0,0.2);
+}
+
+.red-bottom {
+  border-bottom: 3px solid red;
+}

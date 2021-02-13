@@ -3,15 +3,16 @@
     <div class="col-8">
       <div class="w-100 my-3" style="background-image: url(<%= @bm.url_photo %>); background-size: cover; background-position: center; height: 65vh;">
       </div>
-      <div class="bg-white w-100 p-3">
+      <div class="bg-white w-100 p-3 box-shadow">
         <h1><%= @bm.name.upcase %></h1>
         <p><%= @bm.description %></p>
       </div>
-      <div class="bg-white w-100 p-3 my-3">
+      <div class="bg-white w-100 p-3 my-3 box-shadow">
+        <h5 class="text-center red-bottom mb-3 pb-3">Custom options for this model:</h5>
         <div class="row">
           <% @bm.option_types.each do |ot| %>
             <div class="col-4">
-              <p><strong><%= ot.name %></strong></p>
+              <h5><strong><%= ot.name %>s</strong></h5>
               <% ot.options.each do |option| %>
                 <p> <%= option.content %> </p>
               <% end %>
@@ -21,7 +22,7 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="card sticky-top mt-3" style="width: 20rem;">
+      <div class="card sticky-top mt-3 box-shadow" style="width: 20rem;">
         <div class="card-header">
           <strong>Select your custom options:</strong>
         </div>

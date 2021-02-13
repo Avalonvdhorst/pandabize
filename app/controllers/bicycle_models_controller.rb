@@ -42,6 +42,14 @@ class BicycleModelsController < ApplicationController
     end
   end
 
+  def destroy
+    @bm = BicycleModel.find(params[:id])
+    @bm.destroy
+    authorize(@bm)
+
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_bm_params
