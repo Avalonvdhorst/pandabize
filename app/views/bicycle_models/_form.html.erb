@@ -1,6 +1,6 @@
 <%= simple_form_for(@bm) do |f| %>
   <%= f.input :name %>
   <%= f.input :description, input_html: { class: "high-input" } %>
-
+  <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
   <%= f.submit "submit", class: "btn btn-outline-primary" %>
 <% end %>
