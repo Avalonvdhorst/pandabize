@@ -1,6 +1,7 @@
 <%= simple_form_for(@bm) do |f| %>
   <%= f.input :name %>
   <%= f.input :description, input_html: { class: "high-input" } %>
+<<<<<<< Updated upstream
   <p>Select the custom options for this bike:</p>
   <%= f.association :option_types %>
   <%= f.association :options %>
@@ -11,6 +12,18 @@
       <%= op.input :content %>
     <% end %>
   <% end %>
+=======
+
+  <p>Select the custom options for this bike:</p>
+
+    <%= f.simple_fields_for :option_types do |ot| %>
+      <%= ot.input :name %>
+    <% end %>
+
+
+
+
+>>>>>>> Stashed changes
   <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
   <%= f.submit "submit", class: "btn btn-outline-primary" %>
 <% end %>

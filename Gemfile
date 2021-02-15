@@ -37,6 +37,7 @@ gem 'simple_form'
 ##### Gems added afterwards #####
 gem 'cloudinary', '~> 1.16.0'
 gem 'pundit'
+gem "cocoon"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
