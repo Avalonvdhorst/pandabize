@@ -53,6 +53,19 @@ class BicycleModelsController < ApplicationController
   private
 
   def set_bm_params
-    params.require(:bicycle_model).permit(:name, :description, :photo)
+    params.require(:bicycle_model).permit(
+      :name,
+      :description,
+      :photo,
+      option_types_attributes: [
+        :id,
+        :name,
+        :_destroy,
+        options_attributes: [
+          :id,
+          :content,
+          :_destroy
+        ]
+      ])
   end
 end

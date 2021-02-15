@@ -1,18 +1,26 @@
-<%= simple_form_for(@bm) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description, input_html: { class: "high-input" } %>
-  <p>Select the custom options for this bike:</p>
-  <%= f.association :option_types %>
-  <%= f.association :options %>
-  <p>Or create another: </p>
-  <%= f.association :option_types do |ot| %>
-    <%= ot.input :name %>
-    <%= ot.association :option do |op| %>
-      <%= op.input :content %>
+<%= simple_form_for(@bm, html: { novalidate: true }) do |f| %>
+  <div class="form-card">
+    <%= f.input :name, pattern: false,  wrapper_html: { class: "bold-text" } %>
+    <%= f.input :description, input_html: { class: "high-input" }, wrapper_html: { class: "bold-text" } %>
+  </div>
+  <p class="pl-4"><strong>Select the custom options for this bike:</strong></p>
+  <div id="option_types">
+    <%= f.simple_fields_for :option_types do |ot| %>
+    <div class="form-card">
+      <%= render 'option_type_fields', f: ot %>
+    </div>
     <% end %>
-  <% end %>
-  <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-  <%= f.submit "submit", class: "btn btn-outline-primary" %>
+    <div class="form-card">
+      <div class="links my-4">
+        <%= link_to_add_association 'add more', f, :option_types, class: "btn btn-outline-primary" %>
+      </div>
+    </div>
+
+  </div>
+  <div class="my-5">
+    <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+    <%= f.submit "submit", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 

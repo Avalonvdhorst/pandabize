@@ -12,7 +12,7 @@
         <div class="row">
           <% @bm.option_types.each do |ot| %>
             <div class="col-4">
-              <h5><strong><%= ot.name %>s</strong></h5>
+              <h5><strong><%= ot.name %></strong></h5>
               <% ot.options.each do |option| %>
                 <p> <%= option.content %> </p>
               <% end %>
