@@ -4,6 +4,7 @@ class BicycleModel < ApplicationRecord
 
   has_one_attached :photo
 
+  accepts_nested_attributes_for :option_types, allow_destroy: true
 
   def url_photo
     if photo.attached?

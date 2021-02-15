@@ -1,0 +1,23 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="col-11">
+      <%= f.input :name, label: false %>
+    </div>
+    <div class="col-1">
+      <%= link_to_remove_association '<i class="fas fa-minus"></i>'.html_safe, f  %>
+    </div>
+  </div>
+  <p>Options:</p>
+    <div id="options">
+      <div class="row">
+        <%= f.simple_fields_for :options do |op| %>
+          <div class="col-3">
+            <%= render 'option_fields', f: op %>
+          </div>
+        <% end %>
+       </div>
+      <div class="links">
+      <%= link_to_add_association 'add option', f, :options %>
+    </div>
+    </div>
+</div>

@@ -1,12 +1,17 @@
-<%= simple_form_for(@bm) do |f| %>
-  <%= f.input :name %>
+<%= simple_form_for(@bm, html: { novalidate: true }) do |f| %>
+  <%= f.input :name, pattern: false %>
   <%= f.input :description, input_html: { class: "high-input" } %>
 
   <p>Select the custom options for this bike:</p>
-
+  <div id="option_types">
     <%= f.simple_fields_for :option_types do |ot| %>
-      <%= ot.input :name %>
+    <%= render 'option_type_fields', f: ot %>
     <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add option', f, :option_types %>
+    </div>
+
+  </div>
 
   <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
   <%= f.submit "submit", class: "btn btn-outline-primary" %>
