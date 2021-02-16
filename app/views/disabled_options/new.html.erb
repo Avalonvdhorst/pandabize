@@ -1,0 +1,8 @@
+<%= simple_form_for(@bm) do |f| %>
+<div id="disabled_options">
+    <%= f.simple_fields_for :disabled_options do |dop| %>
+      <%= render 'disabled_option_fields', f: dop %>
+    <% end %>
+   <%= link_to_add_association 'add more', f, :disabled_options, class: "btn btn-outline-primary ml-4" %>
+  </div>
+<% end %>
