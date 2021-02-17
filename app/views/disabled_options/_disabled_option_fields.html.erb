@@ -1,10 +1,26 @@
 <div class="nested-fields">
-  <div class="row">
+  <div class="row my-4">
     <div class="col-6">
-      <%= f.association :option, label: false %>
+      <select class="select-options"  name="select-option[]" placeholder="Select disabled options">
+        <% @bm.option_types.each do |ot| %>
+          <optgroup label="<%= ot.name %>">
+          <% ot.options.each do |op| %>
+            <option value="<%= op.id %>"><%= op.content %></option>
+          <% end %>
+          </optgroup>
+        <% end %>
+      </select>
     </div>
     <div class="col-6">
-      <%= f.association :option, label: false %>
+      <select class="multi-select-options" name="multi-select-options[]" multiple placeholder="Select disabled options">
+        <% @bm.option_types.each do |ot| %>
+          <optgroup label="<%= ot.name %>">
+          <% ot.options.each do |op| %>
+            <option value="<%= op.id %>"><%= op.content %></option>
+          <% end %>
+          </optgroup>
+        <% end %>
+      </select>
     </div>
   </div>
 </div>
