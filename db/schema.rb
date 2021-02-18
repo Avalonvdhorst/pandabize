@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_095626) do
+ActiveRecord::Schema.define(version: 2021_02_16_130143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_02_12_095626) do
     t.bigint "option_two_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "bicycle_model_id"
+    t.index ["bicycle_model_id"], name: "index_disabled_options_on_bicycle_model_id"
     t.index ["option_one_id"], name: "index_disabled_options_on_option_one_id"
     t.index ["option_two_id"], name: "index_disabled_options_on_option_two_id"
   end
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_095626) do
   add_foreign_key "bicycle_options", "options"
   add_foreign_key "bicycles", "bicycle_models"
   add_foreign_key "bicycles", "users"
+  add_foreign_key "disabled_options", "bicycle_models"
   add_foreign_key "disabled_options", "options", column: "option_one_id"
   add_foreign_key "disabled_options", "options", column: "option_two_id"
   add_foreign_key "option_types", "bicycle_models"

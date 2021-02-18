@@ -7101,6 +7101,11 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
+tom-select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/tom-select/-/tom-select-1.1.2.tgz#b7fd911b4ec07d1659d2d1ac5355f7e45de9e5f6"
+  integrity sha512-fgZm5+iwXLncPCU1p3B6Fk/P/mfHJBs5X/nGdHA2dYRVSjpTELN0UTAaLgDTrX5w+G3t1KlIq+2u9hMzRpjTwQ==
+
 tough-cookie@~2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2"

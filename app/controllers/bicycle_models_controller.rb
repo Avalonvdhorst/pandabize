@@ -19,7 +19,7 @@ class BicycleModelsController < ApplicationController
     authorize(@bm)
 
     if @bm.save
-      redirect_to dashboard_path
+      redirect_to new_bicycle_model_disabled_option_path(@bm)
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class BicycleModelsController < ApplicationController
     authorize(@bm)
 
     if @bm.save
-      redirect_to dashboard_path
+      redirect_to new_bicycle_model_disabled_option_path(@bm)
     else
       render 'edit'
     end
@@ -65,6 +65,10 @@ class BicycleModelsController < ApplicationController
           :id,
           :content,
           :_destroy
+        ],
+        disabled_options_attributes: [
+          "select-option",
+          "multi-select-options"
         ]
       ])
   end
