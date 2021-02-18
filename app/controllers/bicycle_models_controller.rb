@@ -6,6 +6,7 @@ class BicycleModelsController < ApplicationController
 
   def show
     @bm = BicycleModel.find(params[:id])
+    @bike = Bicycle.new
     authorize(@bm)
   end
 

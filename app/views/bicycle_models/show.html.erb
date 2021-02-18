@@ -26,11 +26,23 @@
         <div class="card-header">
           <strong>Select your custom options:</strong>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        <div>
+          <%= simple_form_for [@bm, @bike] do |f| %>
+            <p class="pl-4"><strong>Custom options:</strong></p>
+            <% @bm.option_types.each do |ot| %>
+            <div>
+              <h2><%= ot.name %></h2>
+              <% ot.options.each do |op| %>
+                <div class="pill-container">
+                  <input type="checkbox" id="option-<%= op.id %>" name="option" value="<%= op.id %>">
+                  <label class="option <%= op.id %>" for="option-<%= op.id %>"><%= op.content %></label>
+                </div>
+              <% end %>
+            <% end %>
+            </div>
+            <%= f.submit %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
