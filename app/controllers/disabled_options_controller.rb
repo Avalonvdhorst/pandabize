@@ -10,14 +10,17 @@ class DisabledOptionsController < ApplicationController
     authorize(@bm)
     @bm.disabled_options.build
     multiselect = params["multi-select-options"]
-    multiselect.each do |ms|
-      @dop = DisabledOption.create(option_one_id: params["select-option"][0].to_i, option_two_id: ms.to_i, bicycle_model_id: params[:bicycle_model_id])
+    unless multiselect.nil?
+      multiselect.each do |ms|
+        @dop = DisabledOption.create(option_one_id: params["select-option"][0].to_i, option_two_id: ms.to_i, bicycle_model_id: params[:bicycle_model_id])
+      end
+      if @dop.save
+        redirect_to dashboard_path
+      else
+        render 'new'
+      end
     end
-    if @dop.save
-      redirect_to dashboard_path
-    else
-      render 'new'
-    end
+    redirect_to dashboard_path
   end
 
   private

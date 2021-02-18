@@ -7,9 +7,9 @@
         <h1><%= @bm.name.upcase %></h1>
         <p><%= @bm.description %></p>
       </div>
-      <div class="bg-white w-100 p-3 my-3 box-shadow">
-        <h5 class="text-center red-bottom mb-3 pb-3">Custom options for this model:</h5>
-        <div class="row">
+      <!-- <div class="bg-white w-100 p-3 my-3 box-shadow">
+        <h5 class="text-center red-bottom mb-3 pb-3">Custom available options for this model:</h5> -->
+        <!-- <div class="row">
           <% @bm.option_types.each do |ot| %>
             <div class="col-4">
               <h5><strong><%= ot.name %></strong></h5>
@@ -18,29 +18,29 @@
               <% end %>
             </div>
           <% end %>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </div>
     <div class="col-4">
-      <div class="card sticky-top mt-3 box-shadow" style="width: 20rem;">
-        <div class="card-header">
-          <strong>Select your custom options:</strong>
+      <div class="card sticky-top my-3 box-shadow pr-2">
+        <div class="text-center my-3">
+          <h5><strong>Select your custom options:</strong></h5>
         </div>
         <div>
           <%= simple_form_for [@bm, @bike] do |f| %>
-            <p class="pl-4"><strong>Custom options:</strong></p>
             <% @bm.option_types.each do |ot| %>
-            <div>
-              <h2><%= ot.name %></h2>
-              <% ot.options.each do |op| %>
-                <div class="pill-container">
-                  <input type="checkbox" id="option-<%= op.id %>" name="option" value="<%= op.id %>">
-                  <label class="option <%= op.id %>" for="option-<%= op.id %>"><%= op.content %></label>
-                </div>
-              <% end %>
+              <p class="pl-3 pt-4"><%= ot.name %></p>
+              <div class="card-grid">
+                <% ot.options.each do |op| %>
+                  <div class="pill-container">
+                      <input type="checkbox" id="option-<%= op.id %>" name="options[]" value="<%= op.id %>">
+                      <label class="selector" for="option-<%= op.id %>"><%= op.content %></label>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
             </div>
-            <%= f.submit %>
+            <%= f.submit "Buy Now", class: "btn btn-primary ml-1 m-5" %>
           <% end %>
         </div>
       </div>
