@@ -1,7 +1,7 @@
 class BicycleModel < ApplicationRecord
   has_many :option_types
   has_many :options, through: :option_types
-  has_many :disabled_options
+  has_many :disabled_options, dependent: :destroy
 
   has_one_attached :photo
 

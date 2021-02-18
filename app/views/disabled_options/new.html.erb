@@ -4,9 +4,6 @@
       <h4 class="text-center my-3">Select your custom disabled options:</h4>
       <%= simple_form_for([@dop, @bm], html: { id: "disable_option_form" }, url: bicycle_model_disabled_options_path, method: :post ) do |f| %>
         <div id="disabled_options" class="mt-5">
-          <%= f.simple_fields_for :disabled_options do |dop| %>
-            <%= render 'disabled_option_fields', f: dop %>
-          <% end %>
          <div class="links">
            <%= link_to_add_association 'add more', f, :disabled_options, class: "btn btn-outline-primary my-3 newDo" %>
          </div>
