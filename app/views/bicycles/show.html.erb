@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="bg-white w-100 p-4 box-shadow mt-4">
+        <div class="text-center mt-5 big-mb">
+          <h2><strong>Thank you for your order</strong></h2>
+          <p class="smaller-para">We have sent an email to <%= current_user.email %> with details about the delivery.</p>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="w-100" style="background-image: url(<%= @bm.url_photo %>); background-size: cover; background-position: center; height: 30vh;">
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+             <h4 class="red-bottom"> <%= @bm.name %></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

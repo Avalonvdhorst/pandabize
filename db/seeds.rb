@@ -1,5 +1,7 @@
 require 'open-uri'
 
+BicycleOption.destroy_all
+Bicycle.destroy_all
 DisabledOption.destroy_all
 Option.destroy_all
 OptionType.destroy_all
