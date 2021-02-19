@@ -8,12 +8,22 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <div class="w-100" style="background-image: url(<%= @bm.url_photo %>); background-size: cover; background-position: center; height: 30vh;">
+            <div class="w-100 mb-5" style="background-image: url(<%= @bm.url_photo %>); background-size: cover; background-position: center; height: 30vh;">
             </div>
           </div>
           <div class="col-6">
             <div>
-             <h4 class="red-bottom"> <%= @bm.name %></h4>
+              <h3 class="red-bottom mb-4"> <%= @bm.name.upcase %></h3>
+              <p><strong>Custom options:</strong></p>
+              <% if @bike.bicycle_options.empty? %>
+                <p>No custom options, you chose the original bike!</p>
+              <% else %>
+                <% @bike.bicycle_options.each do |bop| %>
+                <% opt = Option.find(bop.option_id) %>
+                <% ot = OptionType.find(opt.option_type_id) %>
+                <p class="confirm-para"><i class="fas fa-check pr-1"></i><%= ot.name %>: <%= opt.content %></p>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
