@@ -18,13 +18,40 @@
   margin-top: 10px;
 }
 
-.btn-buy {
-  border: 1px solid black;
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-input[type=radio]:checked + label {
-  font-style: normal;
-  color: rgb(56,110,246);
-  border: 1px solid rgb(56,110,246);
-  background-color: rgb(226,233,253)
+
+.pill-container {
+  & input[type="checkbox"]{
+    opacity: 0;
+  }
 }
+
+.selector {
+  cursor: pointer;
+  background: white;
+  border: 2px solid $red;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 75%;
+  text-align: center;
+  &:hover {
+    border: 5px solid $red;
+    padding: 7px 3px;
+  }
+}
+
+input[type="checkbox"]:checked + label {
+  background: $red;
+  color: white;
+}
+
+.opt-none {
+  width: 83px;
+}
+
+
+

@@ -3,44 +3,41 @@
     <div class="col-8">
       <div class="w-100 my-3" style="background-image: url(<%= @bm.url_photo %>); background-size: cover; background-position: center; height: 65vh;">
       </div>
-      <div class="bg-white w-100 p-3 box-shadow">
+      <div class="bg-white w-100 p-4 box-shadow mb-4">
         <h1><%= @bm.name.upcase %></h1>
-        <p><%= @bm.description %></p>
-      </div>
-      <div class="bg-white w-100 p-3 my-3 box-shadow">
-        <h5 class="text-center red-bottom mb-3 pb-3">Custom options for this model:</h5>
-        <div class="row">
+        <p><%= @bm.description.split("Specs")[0] %></p>
+        <p><strong>Specs</strong> <%= @bm.description.split("Specs")[1] %></p>
+        <h5 class="mb-3 mt-5"><strong>Custom available options for this model:</strong></h5>
           <% @bm.option_types.each do |ot| %>
-            <div class="col-4">
-              <h5><strong><%= ot.name %></strong></h5>
-              <% ot.options.each do |option| %>
-                <p> <%= option.content %> </p>
-              <% end %>
-            </div>
+            <p><i class="fas fa-check pr-1"></i> <%= ot.name %></p>
           <% end %>
-        </div>
       </div>
     </div>
     <div class="col-4">
-      <div class="card sticky-top mt-3 box-shadow" style="width: 20rem;">
-        <div class="card-header">
-          <strong>Select your custom options:</strong>
+      <div class="card sticky-top my-3 box-shadow pl-1 pr-2">
+        <div class="text-center mt-5 mb-2">
+          <h5><strong>Select your custom options:</strong></h5>
         </div>
         <div>
           <%= simple_form_for [@bm, @bike] do |f| %>
-            <p class="pl-4"><strong>Custom options:</strong></p>
             <% @bm.option_types.each do |ot| %>
-            <div>
-              <h2><%= ot.name %></h2>
-              <% ot.options.each do |op| %>
-                <div class="pill-container">
-                  <input type="checkbox" id="option-<%= op.id %>" name="option" value="<%= op.id %>">
-                  <label class="option <%= op.id %>" for="option-<%= op.id %>"><%= op.content %></label>
-                </div>
-              <% end %>
+              <p class="pl-3 pt-3"><%= ot.name %></p>
+              <div class="card-grid">
+                <% ot.options.each do |op| %>
+                  <div class="pill-container">
+                    <input type="checkbox" id="option-<%= op.id %>" name="options[]" value="<%= op.id %>">
+                    <label class="selector" for="option-<%= op.id %>"><%= op.content %></label>
+                  </div>
+                <% end %>
+              </div>
             <% end %>
+            <p class="pl-3 pt-3">Or:</p>
+            <div class="pill-container">
+              <input type="checkbox" id="option-none" name="options[]" value="none">
+              <label class="selector opt-none" for="option-none">None</label>
             </div>
-            <%= f.submit %>
+            </div>
+            <%= f.submit "submit", class: "btn btn-primary ml-1 m-5" %>
           <% end %>
         </div>
       </div>
