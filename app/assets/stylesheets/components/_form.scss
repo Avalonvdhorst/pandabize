@@ -39,8 +39,8 @@
   width: 75%;
   text-align: center;
   &:hover {
-    background: lighten($red, 20%);
-    color: white;
+    border: 5px solid $red;
+    padding: 7px 3px;
   }
 }
 
