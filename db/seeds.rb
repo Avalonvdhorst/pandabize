@@ -1,14 +1,14 @@
 require 'open-uri'
 
-BicycleModel.destroy_all
-OptionType.destroy_all
-Option.destroy_all
 DisabledOption.destroy_all
+Option.destroy_all
+OptionType.destroy_all
+BicycleModel.destroy_all
 
 
 bike1 = BicycleModel.create(
   name: 'Nero',
-  description: 'The fastest shape of all frames. Thanks to its pursuit geometry, it will take you to the next level. Competitive, reactive and very unique. Since 2012, the Nero bike has been the choice of many pro riders around the world. Specs: Continental ultra sport iii. 700x25 c. Foldable. Black'
+  description: 'The fastest shape of all frames. Thanks to its pursuit geometry, it will take you to the next level. Competitive, reactive and very unique. Since 2012, the Nero bike has been the choice of many pro riders around the world. Specs: Continental ultra sport iii. 700x25 c. Black'
   )
 file1 = URI.open('https://images.unsplash.com/photo-1593091816440-27564545a7aa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
 bike1.photo.attach(io: file1, filename: 'nero.png', content_type: 'image/png')
@@ -16,7 +16,7 @@ bike1.photo.attach(io: file1, filename: 'nero.png', content_type: 'image/png')
 
 bike2 = BicycleModel.create(
   name: 'Fuji',
-  description: "Designed to be a multipurpose bike, with a shape suitable for all kinds of uses, from your daily commute to the city to meeting all the most demanding rider’s needs regarding competitions and training. lightweight, stiff, high class and comfort. Specs: Forkfull carbon fork . Tapered 1-1/8”. Rake 45mm . 700x28c max"
+  description: "Designed to be a multipurpose bike, with a shape suitable for all kinds of uses, from your daily commute to the city to meeting all the most demanding rider’s needs regarding competitions and training. lightweight, stiff, high class and comfort. Specs: Full carbon fork . Tapered 1-1/8”.  Rake 45mm . 700x28c max"
   )
 file2 = URI.open('https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fGZpeGllfGVufDB8fDB8&auto=format&fit=crop&w=500&q=60')
 bike2.photo.attach(io: file2, filename: 'fuji.png', content_type: 'image/png')
@@ -32,9 +32,9 @@ bike3.photo.attach(io: file3, filename: 'fuji.png', content_type: 'image/png')
 
 bike4 = BicycleModel.create(
   name: 'Dallas',
-  description: "The Dallas model is the bike chosen by the most demanding riders from around the world. A perfect balance between elegance and technology, lightness and reactivity and manoeuvrability and robustness. these are some of the attributes that make the tokyo dosnoventa’s flagship frame. Specs: continental ultra sport iii. 700x25 c. Foldable. Black"
+  description: "The Dallas model is the bike chosen by the most demanding riders from around the world. A perfect balance between elegance and technology, lightness and reactivity and manoeuvrability and robustness. these are some of the attributes that make the tokyo dosnoventa’s flagship frame. Specs: continental ultra sport iii. 700x25 c. Black"
   )
-file4 = URI.open('https://images.unsplash.com/photo-1559225549-532a2e59a52c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzV8fGZpeGVkJTIwZ2VhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+file4 = URI.open('https://images.unsplash.com/photo-1559225549-532a2e59a52c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80')
 bike4.photo.attach(io: file4, filename: 'dallas.png', content_type: 'image/png')
 
 
@@ -42,7 +42,7 @@ bike5 = BicycleModel.create(
   name: 'Quella',
   description: "The quella, the classic steel frame set. high-quality, smooth, long-lasting and very iconic. Ready to make you enjoy every kilometre you spend on top of it. Competitive, fast, light, stiff, reactive and very unique. Specs: Continental ultra sport iii. Triple butted niobium steel"
   )
-file5 = URI.open('https://images.unsplash.com/photo-1612629371208-0ae8f1b62824?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTZ8fGZpeGVkJTIwZ2VhcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')
+file5 = URI.open('https://images.unsplash.com/photo-1595884157644-48407545e11d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80')
 bike5.photo.attach(io: file5, filename: 'quella.png', content_type: 'image/png')
 
 
