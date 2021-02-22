@@ -9,8 +9,7 @@ class DisabledOptionsController < ApplicationController
     @bm = BicycleModel.find(params[:bicycle_model_id])
     authorize(@bm)
     @bm.disabled_options.build
-    multiselect = params["multi-select-options"]
-    if multiselect.nil?
+    if params[:disabled_option_attributes].nil?
       redirect_to dashboard_path
     else
       build_disabled_options
@@ -18,8 +17,10 @@ class DisabledOptionsController < ApplicationController
   end
 
   def build_disabled_options
-    params["multi-select-options"].each do |ms|
-      @dop = DisabledOption.create(option_one_id: params["select-option"][0].to_i, option_two_id: ms.to_i, bicycle_model_id: params[:bicycle_model_id])
+    params[:disabled_option_attributes].each do |doa|
+      doa[:option_two_ids].each do |oti|
+      @dop = DisabledOption.create(option_one_id: doa[:option_one_id].to_i, option_two_id: oti.to_i, bicycle_model_id: params[:bicycle_model_id])
+      end
     end
     if @dop.save
       redirect_to dashboard_path
@@ -31,6 +32,6 @@ class DisabledOptionsController < ApplicationController
   private
 
   def dop_params
-    params.require(:disabled_option).permit("select-option", "multi-select-options", :bicycle_model_id)
+    params.require(:disabled_option).permit(:disabled_option_attributes, :bicycle_model_id)
   end
 end

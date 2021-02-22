@@ -20,13 +20,14 @@ require("channels")
 // External imports
 import "bootstrap";
 import {initTomSelect} from "./tom_select_init"
+import {initDisabledOptions} from "./init_disabled_options"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
   initTomSelect();
+  initDisabledOptions();
 });
 
 // const doButton = document.querySelector(".newDo");

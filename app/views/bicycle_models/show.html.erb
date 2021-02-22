@@ -25,19 +25,13 @@
               <div class="card-grid">
                 <% ot.options.each do |op| %>
                   <div class="pill-container">
-                    <input type="checkbox" id="option-<%= op.id %>" name="options[]" value="<%= op.id %>">
+                    <input type="checkbox" id="option-<%= op.id %>" name="options[]" value="<%= op.id %>" data-disabled-ids="<%= op.disabled_option_ids %>">
                     <label class="selector" for="option-<%= op.id %>"><%= op.content %></label>
                   </div>
                 <% end %>
               </div>
             <% end %>
-            <p class="pl-3 pt-3">Or:</p>
-            <div class="pill-container">
-              <input type="checkbox" id="option-none" name="options[]" value="none">
-              <label class="selector opt-none" for="option-none">None</label>
-            </div>
-            </div>
-            <%= f.submit "submit", class: "btn btn-primary ml-1 m-5" %>
+            <%= f.submit "submit", class: "btn btn-primary my-5 ml-5 w-75" %>
           <% end %>
         </div>
       </div>

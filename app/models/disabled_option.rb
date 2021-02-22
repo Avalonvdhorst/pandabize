@@ -4,7 +4,6 @@ class DisabledOption < ApplicationRecord
 
   validates :option_one_id, presence: true
   validates :option_two_id, presence: true
-  # belongs_to :option_type, through: :option
 
   def find_name_and_content(id_one, id_two)
     content = []

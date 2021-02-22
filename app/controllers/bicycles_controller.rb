@@ -6,7 +6,7 @@ class BicyclesController < ApplicationController
     @bike.user = current_user
 
     if @bike.save
-      build_bicycle_options unless params[:options][0] == "none"
+      build_bicycle_options if params[:options]
       redirect_to bicycle_model_bicycle_path(params[:bicycle_model_id], @bike)
     else
       render "bicycle_models/show"

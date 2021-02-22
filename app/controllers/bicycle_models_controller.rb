@@ -66,10 +66,6 @@ class BicycleModelsController < ApplicationController
           :id,
           :content,
           :_destroy
-        ],
-        disabled_options_attributes: [
-          "select-option",
-          "multi-select-options"
         ]
       ])
   end

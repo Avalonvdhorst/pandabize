@@ -1,7 +1,7 @@
 <div class="nested-fields">
   <div class="row my-4">
     <div class="col-6">
-      <select class="select-options"  name="select-option[]" placeholder="Select disabled options">
+      <select class="select-options"  name="disabled_option_attributes[][option_one_id]" placeholder="Select disabled options">
         <% @bm.option_types.each do |ot| %>
           <optgroup label="<%= ot.name %>">
           <% ot.options.each do |op| %>
@@ -12,7 +12,7 @@
       </select>
     </div>
     <div class="col-6">
-      <select class="multi-select-options" name="multi-select-options[]" multiple placeholder="Select disabled options">
+      <select class="multi-select-options" name="disabled_option_attributes[][option_two_ids][]" multiple placeholder="Select disabled options">
         <% @bm.option_types.each do |ot| %>
           <optgroup label="<%= ot.name %>">
           <% ot.options.each do |op| %>
